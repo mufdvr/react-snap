@@ -12,10 +12,12 @@ const minimalcss = require("minimalcss");
 const CleanCSS = require("clean-css");
 const twentyKb = 20 * 1024;
 
+const source = nativeFs.existsSync(`${process.cwd()}/build`) ? "build" : "."
+
 const defaultOptions = {
   //# stable configurations
   port: 45678,
-  source: "build",
+  source,
   destination: null,
   concurrency: 4,
   include: ["/"],
